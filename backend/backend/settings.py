@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-1wbxu@@6%de=3pgpzw#i9^-xdfur^b!#vk1=ivxy$06wmf1fty
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -50,11 +50,15 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    ...
     
 ]
 
-CORS_ALLOWED_ORIGINS = ['http://localhost:8081','exp://192.168.132.2:8081','https://192.168.14.118:8000','http://localhost:8081']
-ALLOWED_ALL_ORIGINS = True
+CORS_ALLOWED_ORIGINS = []
+# ALLOWED_ALL_ORIGINS = True
 ROOT_URLCONF = 'backend.urls'
 
 TEMPLATES = [
@@ -75,15 +79,21 @@ TEMPLATES = [
 WSGI_APPLICATION = 'backend.wsgi.application'
 
 
+import dj_database_url 
+
+DATABASES = {
+    'default': dj_database_url.config(default='sqlite:///db.sqlite3')
+}
+
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 
 # Password validation
