@@ -1,0 +1,22 @@
+# backend
+__pycache__/
+*.pyc   
+.env/
+.env.*
+db.sqlite3
+
+
+# frontend
+frontend/node_modules/
+# frontend/expo/
+frontend/.expo/
+frontend/build/
+frontend/.expo-shared/
+
+# global
+.DS_Store
+.vscode/
+*.log
+.idea/
+node_modules/
+dist/

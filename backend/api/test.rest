@@ -1,0 +1,20 @@
+
+POST http://localhost:8000/api/transactions/
+Content-Type: application/json
+
+{
+    "amount": 500.0,
+    "description": "donner a indy",
+    "category": "PRET",
+    "type": "EXPENSE"
+}
+
+
+###
+GET http://localhost:8000/api/transactions/
+Content-Type: application/json
+
+
+# Get a specific transaction by ID
+###
+DELETE http://localhost:8000/api/transactions/fb302863-52fd-4180-94a5-e47e15685956/ 
